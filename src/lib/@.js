@@ -85,13 +85,13 @@ module.exports = {
 	gzipBuffer(buffer,gzipLevel){
 		if( dead ){ return deadPromise; }
 		if(!(buffer instanceof Buffer)){ return typeBuffer; }
-		return gzip(buffer,level);
+		return gzip(buffer,gzipLevel);
 	},
 
 	gzipString(string,gzipLevel){
 		if( dead ){ return deadPromise; }
 		if( typeof string!=='string' ){ return typeString; }
-		return gzip(from(string),level);
+		return gzip(from(string),gzipLevel);
 	},
 
 	unzipBuffer(buffer){
