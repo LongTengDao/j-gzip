@@ -1,7 +1,7 @@
 {
 	"name":"@ltd/j-gzip",
-	"version":"1.0.1",
-	"description":"基于子进程的 gzip CPU 密集运算。从属于“简计划”。",
+	"version":"2.0.0",
+	"description":"基于原生多线程的 promisify 异步 gzip 相关的 CPU 密集运算。从属于“简计划”。",
 	"bugs":"https://GitHub.com/LongTengDao/j-gzip/issues",
 	"license":"LGPL",
 	"author":"龙腾道 <LongTengDao@LongTengDao.com> (www.LongTengDao.com)",
