@@ -1,4 +1,6 @@
-# `require('@ltd/j-gzip')`
+
+`@ltd/j-gzip`
+=============
 
 基于原生多线程的 `promisify` 异步 `gzip` 相关的 `CPU` 密集运算。
 
@@ -8,7 +10,8 @@
 压缩选项参数被简化为压缩等级参数；
 压缩占用内存等级为最高，其它选项值缺省。
 
-## API
+API
+---
 
 ### `.gzipAsync(data, level)` `async` 方法
 

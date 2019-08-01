@@ -1,0 +1,12 @@
+{
+	"name": "@ltd/j-gzip",
+	"description": ". Belong to \"Plan J\".／基于原生多线程的 promisify 异步 gzip 相关的 CPU 密集运算。从属于“简计划”。",
+	"version": "2.1.0",
+	"license": "LGPL-3.0",
+	"author": "龙腾道 <LongTengDao@LongTengDao.com> (www.LongTengDao.com)",
+	"bugs": "https://GitHub.com/LongTengDao/j-gzip/issues",
+	"repository": {
+		"type": "git",
+		"url": "https://GitHub.com/LongTengDao/j-gzip.git"
+	}
+}
