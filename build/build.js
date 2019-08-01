@@ -9,9 +9,7 @@ require('@ltd/j-dev')(__dirname+'/..')(async ({ build, 龙腾道, get }) => {
 		semver: await get('src/version'),
 		ES: 6,
 		NPM: {
-			description:
-				'. Belong to "Plan J".／'+
-				'基于原生多线程的 promisify 异步 gzip 相关的 CPU 密集运算。从属于“简计划”。',
+			description: 'gzip. Belong to "Plan J".／gzip。从属于“简计划”。',
 		},
 		ESM: true,
 		LICENSE_: true,

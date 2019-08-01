@@ -1,13 +1,13 @@
 ﻿/*!
  * 模块名称：j-gzip
- * 模块版本：2.1.0
+ * 模块版本：2.2.0
  * 许可条款：LGPL-3.0
  * 所属作者：龙腾道 <LongTengDao@LongTengDao.com> (www.LongTengDao.com)
  * 问题反馈：https://GitHub.com/LongTengDao/j-gzip/issues
  * 项目主页：https://GitHub.com/LongTengDao/j-gzip/
  */
 
-const version = '2.1.0';
+const version = '2.2.0';
 
 const create = Object.create;
 
