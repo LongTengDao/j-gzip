@@ -2,48 +2,40 @@
 `@ltd/j-gzip`
 =============
 
-基于原生多线程的 `promisify` 异步 `gzip` 相关的 `CPU` 密集运算。
+Compression/decompression is a kind of `CPU` intensive operation.
 
-原本是 `spawn` 子进程实现对多核 `CPU` 的充分利用，并避免阻塞主进程。
-现在基于原生 `gzip` `unzip` 异步方法派生线程的方案，更好地达到这一目的。
+Originally, this module tried to make full use of multi-core `CPU` and avoid blocking the main process through `spawn` sub-process;
+later, it was found that the native `gzip` / `unzip` callback interface was originally implemented by derived threads, so now this module is only a simple encapsulation of the original method.
 
-压缩选项参数被简化为压缩等级参数；
-压缩占用内存等级为最高，其它选项值缺省。
+Firstly, based on the callback interface, the `promisify` interface is added.
+
+Secondly, the compression parameter `options` is simplified to `level`;
+the compression occupied memory level `memLevel` is the highest, and other options are default.
+
+压缩/解压缩是一类 `CPU` 密集运算。
+
+本来本模块尝试通过 `spawn` 子进程，实现对多核 `CPU` 的充分利用、避免阻塞主进程；后来发现原生 `gzip` / `unzip` 回调接口原本就是派生线程实现的，所以现在本模块只是对原生方法的简单封装。
+
+首先，基于回调接口，增加了 `promisify` 接口。
+
+其次，压缩选项参数 `options` 被简化为压缩等级参数 `level`；压缩占用内存等级 `memLevel` 为最高，其它选项值缺省。
 
 API
 ---
 
-### `.gzipAsync(data, level)` `async` 方法
+```ts
+type Level = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 
--   用途：对 `data` 进行指定等级的 `gzip` 压缩。
--   参数：
-    *   `buffer`
-        -   用途：要压缩的数据。
-        -   类型：`Buffer` `string`
-    *   `level`
-        -   用途：指定压缩等级。
-        -   类型：`1` 至 `9` 之间的整数
+function gzipAsync  (data :Buffer | string, level :Level              ) :Promise<Buffer>;
+function gzipSync   (data :Buffer | string, level :Level              ) :Buffer;
+function gzip       (data :Buffer | string, level :Level, cb :Callback) :void;
 
-### `.gzipSync` 方法
+function unzipAsync (data :Buffer                                     ) :Promise<Buffer>
+function unzipSync  (data :Buffer                                     ) :Buffer;
+function unzip      (data :Buffer,                        cb :Callback) :void;
 
-原生的同步压缩方法；压缩选项参数被简化为压缩等级参数。
-
-### `.gzip` 方法
-
-原生的异步压缩方法（基于回调）；压缩选项参数被简化为压缩等级参数。
-
-### `.unzipAsync(data)` `async` 方法
-
--   用途：对 `gzip` 类压缩数据进行解压。
--   参数：
-    *   `buffer`
-        -   用途：要解压的数据。
-        -   类型：`Buffer`
-
-### `.unzipSync` 方法
-
-原生的同步压缩方法。
-
-### `.unzip` 方法
-
-原生的异步压缩方法（基于回调）。
+type Callback = {
+    (error :Error             ) :void
+    (error :null, data :Buffer) :void
+};
+```
