@@ -26,12 +26,12 @@ API
 ```ts
 type Level = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 
-function gzipAsync  (data :Buffer | string, level :Level              ) :Promise<Buffer>;
-function gzipSync   (data :Buffer | string, level :Level              ) :Buffer;
+function gzipAsync  (data :Buffer | string, level :Level                    ) :Promise<Buffer>;
+function gzipSync   (data :Buffer | string, level :Level                    ) :Buffer;
 function gzip       (data :Buffer | string, level :Level, callback :Callback) :void;
 
-function unzipAsync (data :Buffer                                     ) :Promise<Buffer>
-function unzipSync  (data :Buffer                                     ) :Buffer;
+function unzipAsync (data :Buffer                                           ) :Promise<Buffer>
+function unzipSync  (data :Buffer                                           ) :Buffer;
 function unzip      (data :Buffer,                        callback :Callback) :void;
 
 type Callback = {
