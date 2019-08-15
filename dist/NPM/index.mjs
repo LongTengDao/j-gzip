@@ -1,13 +1,13 @@
 ﻿/*!
  * 模块名称：j-gzip
- * 模块版本：2.2.0
+ * 模块版本：2.3.0
  * 许可条款：LGPL-3.0
  * 所属作者：龙腾道 <LongTengDao@LongTengDao.com> (www.LongTengDao.com)
  * 问题反馈：https://GitHub.com/LongTengDao/j-gzip/issues
  * 项目主页：https://GitHub.com/LongTengDao/j-gzip/
  */
 
-const version = '2.2.0';
+const version = '2.3.0';
 
 const create = Object.create;
 
@@ -51,7 +51,7 @@ const {
 } = /*#__PURE__*/ require('zlib');
 const OPTIONS                                                      = /*#__PURE__*/ function () {
 	const OPTIONS = create(null);
-	for ( let level        = 1; level<=9; ++level ) {
+	for ( let level        = -1; level<=9; ++level ) {
 		OPTIONS[level] = assign(create(null), { level, memLevel: 9 });
 	}
 	return OPTIONS;

@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-const version = '2.2.0';
+const version = '2.3.0';
 
 const create = Object.create;
 
@@ -44,7 +44,7 @@ const {
 } = /*#__PURE__*/ require('zlib');
 const OPTIONS                                                      = /*#__PURE__*/ function () {
 	const OPTIONS = create(null);
-	for ( let level        = 1; level<=9; ++level ) {
+	for ( let level        = -1; level<=9; ++level ) {
 		OPTIONS[level] = assign(create(null), { level, memLevel: 9 });
 	}
 	return OPTIONS;

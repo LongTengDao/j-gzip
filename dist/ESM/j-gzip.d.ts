@@ -1,4 +1,4 @@
-export const version :'2.2.0';
+export const version :'2.3.0';
 
 export function gzipAsync (data :Buffer | string, level :Level) :Promise<Buffer>;
 export function gzipSync (data :Buffer | string, level :Level) :Buffer;
@@ -20,7 +20,7 @@ declare const exports :{
 	default :typeof exports,
 };
 
-type Level = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+type Level = -1 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 
 interface Callback {
 	(error :null, data :Buffer) :void

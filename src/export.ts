@@ -14,7 +14,7 @@ import create from '.Object.create';
 import assign from '.Object.assign';
 const OPTIONS :{ [level in Level] :{ level :level, memLevel :9 } } = /*#__PURE__*/ function () {
 	const OPTIONS = create(null);
-	for ( let level :Level = 1; level<=9; ++level ) {
+	for ( let level :Level = -1; level<=9; ++level ) {
 		OPTIONS[level] = assign(create(null), { level, memLevel: 9 });
 	}
 	return OPTIONS;
@@ -57,4 +57,4 @@ export default Default({
 	unzip,
 });
 
-type Level = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+type Level = -1 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
