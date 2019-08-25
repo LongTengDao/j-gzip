@@ -1,7 +1,7 @@
 export = exports;
 declare const exports :{
 	
-	version :'2.3.0',
+	version :'2.4.0',
 	
 	gzipAsync (data :Buffer | string, level :Level) :Promise<Buffer>,
 	gzipSync (data :Buffer | string, level :Level) :Buffer,

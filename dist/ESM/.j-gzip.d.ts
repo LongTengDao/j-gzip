@@ -1,4 +1,4 @@
-export const version :'2.3.0';
+export const version :'2.4.0';
 
 export function gzipAsync (data :Buffer | string, level :Level) :Promise<Buffer>;
 export function gzipSync (data :Buffer | string, level :Level) :Buffer;

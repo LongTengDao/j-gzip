@@ -11,11 +11,12 @@ const {
 import Promise from '.Promise';
 
 import create from '.Object.create';
-import assign from '.Object.assign';
+import NULL from '.null.prototype';
+import Null from '.null';
 const OPTIONS :{ [level in Level] :{ level :level, memLevel :9 } } = /*#__PURE__*/ function () {
-	const OPTIONS = create(null);
-	for ( let level :Level = -1; level<=9; ++level ) {
-		OPTIONS[level] = assign(create(null), { level, memLevel: 9 });
+	const OPTIONS = create(NULL) as any;
+	for ( let level = -1; level<=9; ++level ) {
+		OPTIONS[level] = Null({ level, memLevel: 9 });
 	}
 	return OPTIONS;
 }();

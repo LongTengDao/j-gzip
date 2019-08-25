@@ -1,25 +1,56 @@
 ﻿/*!
  * 模块名称：j-gzip
- * 模块版本：2.3.0
+ * 模块版本：2.4.0
  * 许可条款：LGPL-3.0
  * 所属作者：龙腾道 <LongTengDao@LongTengDao.com> (www.LongTengDao.com)
  * 问题反馈：https://GitHub.com/LongTengDao/j-gzip/issues
  * 项目主页：https://GitHub.com/LongTengDao/j-gzip/
  */
 
-const version = '2.3.0';
+const version = '2.4.0';
 
 const create = Object.create;
 
-const assign = Object.assign;
+const NULL = (
+	/*! j-globals: null.prototype (internal) */
+	Object.create
+		? /*#__PURE__*/ Object.preventExtensions(Object.create(null))
+		: null
+	/*¡ j-globals: null.prototype (internal) */
+);
 
 const hasOwnProperty = Object.prototype.hasOwnProperty;
+
+const freeze = Object.freeze;
+
+const Null = (
+	/*! j-globals: null.constructor (internal) */
+	/*#__PURE__*/ function () {
+		var assign = Object.assign || function assign (target, source) {
+			for ( var key in source ) {
+				if ( hasOwnProperty.call(source, key) ) { target[key] = source[key]; }
+			}
+			return target;
+		};
+		var NULL$1 = function (object) {
+			if ( object ) {
+				return /*#__PURE__*/ assign(/*#__PURE__*/ create(NULL), object);
+			}
+		};
+		delete NULL$1.name;
+		//try { delete NULL.length; } catch (error) {}
+		NULL$1.prototype = null;
+		freeze(NULL$1);
+		return NULL$1;
+	}()
+	/*¡ j-globals: null.constructor (internal) */
+);
+
+const assign = Object.assign;
 
 const toStringTag = typeof Symbol!=='undefined' ? Symbol.toStringTag : undefined;
 
 const defineProperty = Object.defineProperty;
-
-const freeze = Object.freeze;
 
 const seal = Object.seal;
 
@@ -27,13 +58,13 @@ const Default = (
 	/*! j-globals: default (internal) */
 	function Default (exports, addOnOrigin) {
 		return /*#__PURE__*/ function Module (exports, addOnOrigin) {
-			if ( !addOnOrigin ) { addOnOrigin = exports; exports = create(null); }
+			if ( !addOnOrigin ) { addOnOrigin = exports; exports = create(NULL); }
 			if ( assign ) { assign(exports, addOnOrigin); }
 			else { for ( var key in addOnOrigin ) { if ( hasOwnProperty.call(addOnOrigin, key) ) { exports[key] = addOnOrigin[key]; } } }
 			exports['default'] = exports;
 			typeof exports==='function' && exports.prototype && seal(exports.prototype);
 			if ( toStringTag ) {
-				var descriptor = create(null);
+				var descriptor = create(NULL);
 				descriptor.value = 'Module';
 				defineProperty(exports, toStringTag, descriptor);
 			}
@@ -50,9 +81,9 @@ const {
 	unzip,
 } = /*#__PURE__*/ require('zlib');
 const OPTIONS                                                      = /*#__PURE__*/ function () {
-	const OPTIONS = create(null);
-	for ( let level        = -1; level<=9; ++level ) {
-		OPTIONS[level] = assign(create(null), { level, memLevel: 9 });
+	const OPTIONS = create(NULL)       ;
+	for ( let level = -1; level<=9; ++level ) {
+		OPTIONS[level] = Null({ level, memLevel: 9 });
 	}
 	return OPTIONS;
 }();
